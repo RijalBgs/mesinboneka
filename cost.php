@@ -30,7 +30,7 @@ class Payment extends Accessoris {
     	$this->addnametostring("Total ");
 		if ($this->acc['perisai'] && $this->acc['pedang']){
 			$this->jumlah = ($this->hargaBoneka) + ($this->acc['perisai']) + ($this->acc['pedang']);
-			echo $this->hargaBoneka + $this->jumlah * 10 / 100;			
+			$this->hargaBoneka + $this->jumlah * 10 / 100;			
 		} 
 		elseif ($this->acc['topi'] && $this->acc['sayap malaikat']){
 			$this->jumlah = ($this->hargaBoneka) + ($this->acc['topi']) + ($this->acc['sayap malaikat']);
