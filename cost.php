@@ -7,13 +7,13 @@ echo "\n";
 class Payment extends Accessoris {
 
 	public $name;
-	public $hargaBoneka = 900000;
+	public $priceDoll = 900000;
 	public $jumlah;
 	public $total;
 
-	public function getData ($hargaBoneka,$jumlah,$total){
+	public function getData ($priceDoll,$jumlah,$total){
 		
-		$this->hargaBoneka = $hargaBoneka;
+		$this->priceDoll = $priceDoll;
 		$this->jumlah = $jumlah;
 		$this->total = $total;
 		return $this->hasil;
@@ -28,28 +28,31 @@ class Payment extends Accessoris {
 	public function hasil() {
 		$this->name = "Pembayaran :";
     	$this->addnametostring("Total ");
+    	
 		if ($this->acc['perisai'] && $this->acc['pedang']){
-			$this->jumlah = ($this->hargaBoneka) + ($this->acc['perisai']) + ($this->acc['pedang']);
-			$this->hargaBoneka + $this->jumlah * 10 / 100;			
+			$this->jumlah = ($this->priceDoll) + ($this->acc['perisai']) + ($this->acc['pedang']);
+			$this->total = $this->priceDoll + $this->jumlah * 10 / 100;			
 		} 
 		elseif ($this->acc['topi'] && $this->acc['sayap malaikat']){
-			$this->jumlah = ($this->hargaBoneka) + ($this->acc['topi']) + ($this->acc['sayap malaikat']);
-			$this->hargaBoneka + $this->jumlah * 13 / 100;
+			$this->jumlah = ($this->priceDoll) + ($this->acc['topi']) + ($this->acc['sayap malaikat']);
+			$this->total = $this->priceDoll + $this->jumlah * 13 / 100;
 		} 
 		elseif ($this->acc['cincin sakti']){
-			$this->jumlah = ($this->hargaBoneka) + ($this->acc['cincin sakti']);
-			$this->hargaBoneka + $this->jumlah * 10 / 100;
+			$this->jumlah = ($this->priceDoll) + ($this->acc['cincin sakti']);
+			$this->total = $this->priceDoll + $this->jumlah * 10 / 100;
 		}
 		else {
-			echo $this->total = ($this->hargaBoneka) + ($this->acc);
+			$this->total = $this->priceDoll + $this->random;
+			
 		}
+		return $this->total;
 
 	}
 
 }
 
-$total = new Payment;
-$total->hasil();
+$pay = new Payment;
+echo $pay->hasil();
 
 
 ?>
