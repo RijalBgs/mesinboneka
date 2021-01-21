@@ -1,8 +1,5 @@
 <?php  
-require 'doll.php'; 
-echo "\n";
 require 'accessoris.php';
-echo "\n";
 
 class Payment extends Accessoris {
 
@@ -28,21 +25,21 @@ class Payment extends Accessoris {
 	public function hasil() {
 		$this->name = "Pembayaran :";
     	$this->addnametostring("Total ");
-    	
+
 		if ($this->acc['perisai'] && $this->acc['pedang']){
 			$this->jumlah = ($this->priceDoll) + ($this->acc['perisai']) + ($this->acc['pedang']);
 			$this->total = $this->priceDoll + $this->jumlah * 10 / 100;			
 		} 
-		elseif ($this->acc['topi'] && $this->acc['sayap malaikat']){
+		else if ($this->acc['topi'] && $this->acc['sayap malaikat']){
 			$this->jumlah = ($this->priceDoll) + ($this->acc['topi']) + ($this->acc['sayap malaikat']);
 			$this->total = $this->priceDoll + $this->jumlah * 13 / 100;
 		} 
-		elseif ($this->acc['cincin sakti']){
+		else if ($this->acc['cincin sakti']){
 			$this->jumlah = ($this->priceDoll) + ($this->acc['cincin sakti']);
 			$this->total = $this->priceDoll + $this->jumlah * 10 / 100;
 		}
 		else {
-			$this->total = $this->priceDoll + $this->random;
+			$this->total = $this->priceDoll + $this->acc;
 			
 		}
 		return $this->total;
@@ -52,7 +49,7 @@ class Payment extends Accessoris {
 }
 
 $pay = new Payment;
-echo $pay->hasil();
+$pay->hasil();
 
 
 ?>
